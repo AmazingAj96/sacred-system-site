@@ -27,7 +27,6 @@
       --ring:0 0 0 8px #ff2d9a22, 0 0 40px #ff2d9a44 inset;
     }
 
-    /* Reset-ish */
     *{box-sizing:border-box}
     html,body{height:100%}
     body{
@@ -40,7 +39,6 @@
       overflow-x:hidden;
     }
 
-    /* tiny starfield */
     .stars, .stars:before, .stars:after{
       position:fixed; inset:0; content:"";
       background-repeat:repeat;
@@ -133,7 +131,6 @@
       padding:16px 18px; border-radius:16px; color:#fff;
     }
 
-    /* email capsule */
     .waitlist{
       display:flex; gap:10px; flex-wrap:wrap; align-items:center;
       background:var(--glass); border:1px solid #ffffff22; border-radius:16px;
@@ -147,10 +144,8 @@
     }
     .waitlist .join{white-space:nowrap}
 
-    /* footer */
     footer{margin-top:26px; opacity:.75; font-size:14px}
 
-    /* responsive hero art ring */
     .planet{
       position:absolute; right:-10vw; top:-12vw; width:min(70vw, 740px); aspect-ratio:1;
       background:radial-gradient(circle at 55% 45%, #9c6bff 0%, #7a4bff 30%, #401a7e 58%, transparent 62%),
@@ -160,14 +155,12 @@
       box-shadow: 0 0 120px #ff2d9a44;
     }
 
-    /* tiny badge row */
     .badges{display:flex; gap:8px; flex-wrap:wrap; margin:10px 0 0}
     .pill{
       display:inline-flex; align-items:center; gap:8px; padding:8px 12px;
       background:#ffffff10; border:1px solid #ffffff22; border-radius:999px; font-size:13px
     }
 
-    /* mobile niceties */
     @media (max-width:520px){
       .cta-row{gap:8px}
       .btn,.ghost{width:100%; justify-content:center}
@@ -185,7 +178,6 @@
       <header>
         <a class="brand" href="#">
           <span class="flame" aria-hidden="true">
-            <!-- flame glyph -->
             <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
               <path d="M12 3c1.7 3.3-.1 4.9-1.4 6.6C9.3 11 9 12.4 9.5 13.9c.6-1 1.7-1.8 2.7-2.2 1.8-.8 3.3-2.1 3.4-4.5C17.8 9 20 11.5 20 14.7A8 8 0 1 1 8.6 7.2C9.3 5.7 10.6 4.6 12 3Z" fill="#6b2c00"/>
               <path d="M12 19c2.5 0 4-1.6 4-3.7 0-1.6-1-2.9-2-3.6-.2 1.6-1.1 2.5-2.2 3.1-1.3.7-1.9 1.4-1.9 2.6 0 1 .8 1.6 2.1 1.6Z" fill="#ffd15c"/>
@@ -202,8 +194,13 @@
         <strong>Sacred System</strong> is preparing the realm—join the early waitlist and be first to enter.
       </p>
 
-      <form class="waitlist" onsubmit="join(event)">
-        <input id="email" type="email" placeholder="Enter email for early access" required>
+      <!-- ✅ Updated waitlist form -->
+      <form class="waitlist" action="https://formsubmit.co/waitlist@sacred-system.com" method="POST">
+        <input type="email" name="email" placeholder="Enter email for early access" required>
+        <input type="hidden" name="_subject" value="Waitlist — The Sacred Hub">
+        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="_template" value="table">
+        <input type="hidden" name="_next" value="https://sacred-system.com/?joined=1">
         <button class="btn join" type="submit">✨ Join the Waitlist</button>
       </form>
 
@@ -225,17 +222,7 @@
   </div>
 
   <script>
-    // year
     document.getElementById('y').textContent = new Date().getFullYear();
-
-    // simple mobile-friendly mailto join
-    function join(e){
-      e.preventDefault();
-      const v = document.getElementById('email').value.trim();
-      const subj = encodeURIComponent("Waitlist — The Sacred Hub");
-      const body = encodeURIComponent(`Please add me to the Sacred Hub early access:\n\nEmail: ${v}\n\n(Optional) Name: ______\nCircle size: ______`);
-      window.location.href = `mailto:waitlist@sacred-system.com?subject=${subj}&body=${body}`;
-    }
   </script>
 </body>
 </html>
