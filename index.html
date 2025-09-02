@@ -14,49 +14,158 @@
   <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;600;800&family=Space+Grotesk:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
     :root{
-      --bg-1:#0b0616; --bg-2:#1a0b2e; --bg-3:#2b0f4a;
-      --magenta:#ff2d9a; --pink:#ff69b4; --violet:#7a4bff;
-      --gold:#ffd15c; --white:#ffffff; --card:#140a22e6; --glass:#1e0f31cc;
+      --bg-1:#0b0616;   /* deep space */
+      --bg-2:#1a0b2e;
+      --bg-3:#2b0f4a;
+      --magenta:#ff2d9a; /* neon magenta */
+      --pink:#ff69b4;
+      --violet:#7a4bff;
+      --gold:#ffd15c;
+      --white:#ffffff;
+      --card:#140a22e6;
+      --glass:#1e0f31cc;
       --ring:0 0 0 8px #ff2d9a22, 0 0 40px #ff2d9a44 inset;
     }
+
     *{box-sizing:border-box}
     html,body{height:100%}
     body{
       margin:0; color:var(--white);
-      font-family:"Space Grotesk",system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+      font-family: "Space Grotesk", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
       background:
-        radial-gradient(1500px 800px at 50% -200px,#5a2cff33 0%,transparent 60%),
-        radial-gradient(900px 700px at 100% 0%,#ff2d9a22 0%,transparent 60%),
-        linear-gradient(160deg,var(--bg-1),var(--bg-2) 40%,var(--bg-3) 100%);
+        radial-gradient(1500px 800px at 50% -200px, #5a2cff33 0%, transparent 60%),
+        radial-gradient(900px 700px at 100% 0%, #ff2d9a22 0%, transparent 60%),
+        linear-gradient(160deg, var(--bg-1), var(--bg-2) 40%, var(--bg-3) 100%);
       overflow-x:hidden;
     }
-    .stars,.stars:before,.stars:after{position:fixed;inset:0;content:"";background-repeat:repeat;pointer-events:none;opacity:.5}
-    .stars{background-image:radial-gradient(2px 2px at 20% 30%,#ffffffaa 50%,transparent 51%),radial-gradient(1px 1px at 70% 60%,#ffffff88 50%,transparent 51%),radial-gradient(1px 1px at 40% 80%,#ffffff66 50%,transparent 51%)}
-    .stars:before{background-image:radial-gradient(1.5px 1.5px at 10% 70%,#fff9 50%,transparent 51%),radial-gradient(1px 1px at 60% 25%,#fff9 50%,transparent 51%)}
-    .stars:after{background-image:radial-gradient(1px 1px at 85% 40%,#fff9 50%,transparent 51%);filter:blur(.3px)}
-    .wrap{min-height:100dvh;display:flex;align-items:center;justify-content:center;padding:clamp(16px,3vw,32px)}
-    .card{width:min(920px,96vw);background:linear-gradient(180deg,#ffffff08,#00000022);border:1px solid #ffffff1c;border-radius:28px;box-shadow:0 20px 60px #0006,0 0 120px #7a4bff33 inset;padding:clamp(20px,4vw,40px);position:relative;overflow:hidden}
-    .ring{position:absolute;inset:-2px;border-radius:inherit;box-shadow:var(--ring);pointer-events:none}
-    header{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:clamp(18px,3vw,28px)}
-    .brand{display:flex;align-items:center;gap:14px;text-decoration:none;color:var(--white)}
-    .flame{width:44px;height:44px;border-radius:50%;display:grid;place-items:center;background:radial-gradient(circle at 50% 40%,#ffdf95,#ff9b38 60%,#c55f16 100%),radial-gradient(circle at 50% 110%,#ffa7ff33,transparent 60%);box-shadow:0 0 0 2px #ffffff22 inset,0 6px 18px #ff7a0040}
-    .flame svg{width:24px;height:24px;filter:drop-shadow(0 3px 6px #0008)}
-    .wordmark{font-family:"Raleway",system-ui,sans-serif;font-weight:800;font-size:clamp(22px,5vw,32px);letter-spacing:.06em;text-transform:uppercase}
-    h1{font-family:"Raleway",system-ui,sans-serif;font-weight:800;text-transform:uppercase;letter-spacing:.08em;line-height:1.05;font-size:clamp(40px,8.5vw,86px);margin:6px 0 8px;text-shadow:0 2px 0 #0008,0 14px 40px #7a4bff55}
-    .kicker{font-weight:600;color:#ffd7ff;opacity:.9;text-transform:uppercase;letter-spacing:.18em;font-size:.86rem}
-    p.sub{margin:8px 0 22px;color:#fff;opacity:.92;font-size:clamp(16px,2.8vw,18px)}
-    .cta-row{display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin:18px 0 8px}
-    .btn{appearance:none;border:none;cursor:pointer;padding:16px 22px;border-radius:18px;font-weight:700;letter-spacing:.02em;font-size:16px;color:white;text-decoration:none;display:inline-flex;align-items:center;gap:10px;background-image:linear-gradient(90deg,var(--magenta),#b057ff 60%,#6bb6ff);box-shadow:0 8px 26px #ff2d9a55,0 0 0 2px #ffffff22 inset;transition:transform .06s ease,box-shadow .2s ease}
-    .btn:active{transform:translateY(1px) scale(.995)}
-    .ghost{background:transparent;border:1px solid #ffffff33;box-shadow:none;padding:16px 18px;border-radius:16px;color:#fff}
-    .waitlist{display:flex;gap:10px;flex-wrap:wrap;align-items:center;background:var(--glass);border:1px solid #ffffff22;border-radius:16px;padding:10px;box-shadow:0 12px 30px #0006 inset;max-width:680px}
-    .waitlist input{flex:1 1 220px;min-width:0;background:#0f0820;color:#fff;border:1px solid #ffffff22;padding:14px 14px;border-radius:12px;outline:none;font-size:16px}
+
+    .stars, .stars:before, .stars:after{
+      position:fixed; inset:0; content:"";
+      background-repeat:repeat;
+      pointer-events:none;
+      opacity:.5;
+    }
+    .stars{background-image:radial-gradient(2px 2px at 20% 30%, #ffffffaa 50%, transparent 51%),
+                               radial-gradient(1px 1px at 70% 60%, #ffffff88 50%, transparent 51%),
+                               radial-gradient(1px 1px at 40% 80%, #ffffff66 50%, transparent 51%);}
+    .stars:before{background-image:radial-gradient(1.5px 1.5px at 10% 70%, #fff9 50%, transparent 51%),
+                               radial-gradient(1px 1px at 60% 25%, #fff9 50%, transparent 51%);}
+    .stars:after{background-image:radial-gradient(1px 1px at 85% 40%, #fff9 50%, transparent 51%); filter:blur(.3px)}
+
+    .wrap{
+      min-height:100dvh; display:flex; align-items:center; justify-content:center;
+      padding:clamp(16px,3vw,32px);
+    }
+    .card{
+      width:min(920px, 96vw);
+      background:linear-gradient(180deg, #ffffff08, #00000022);
+      border:1px solid #ffffff1c;
+      border-radius:28px;
+      box-shadow: 0 20px 60px #00000066, 0 0 120px #7a4bff33 inset;
+      padding:clamp(20px, 4vw, 40px);
+      position:relative;
+      overflow:hidden;
+    }
+    .ring{position:absolute; inset:-2px; border-radius:inherit; box-shadow:var(--ring); pointer-events:none}
+
+    header{
+      display:flex; align-items:center; justify-content:space-between; gap:12px;
+      margin-bottom:clamp(18px,3vw,28px);
+    }
+
+    .brand{
+      display:flex; align-items:center; gap:14px; text-decoration:none; color:var(--white);
+    }
+    .flame{
+      width:44px; height:44px; border-radius:50%;
+      display:grid; place-items:center;
+      background: radial-gradient(circle at 50% 40%, #ffdf95, #ff9b38 60%, #c55f16 100%),
+                  radial-gradient(circle at 50% 110%, #ffa7ff33, transparent 60%);
+      box-shadow: 0 0 0 2px #ffffff22 inset, 0 6px 18px #ff7a0040;
+    }
+    .flame svg{width:24px;height:24px; filter: drop-shadow(0 3px 6px #0008)}
+
+    .wordmark{
+      font-family:"Raleway", system-ui, sans-serif;
+      font-weight:800;
+      font-size:clamp(22px, 5vw, 32px);
+      letter-spacing:.06em;
+      text-transform:uppercase;
+    }
+
+    h1{
+      font-family:"Raleway", system-ui, sans-serif;
+      font-weight:800;
+      text-transform:uppercase;
+      letter-spacing:.08em;
+      line-height:1.05;
+      font-size: clamp(40px, 8.5vw, 86px);
+      margin:6px 0 8px;
+      text-shadow: 0 2px 0 #0008, 0 14px 40px #7a4bff55;
+    }
+    .kicker{
+      font-weight:600; color:#ffd7ff; opacity:.9;
+      text-transform:uppercase; letter-spacing:.18em; font-size:.86rem;
+    }
+    p.sub{
+      margin:8px 0 22px; color:#fff; opacity:.92;
+      font-size:clamp(16px, 2.8vw, 18px);
+    }
+
+    .cta-row{
+      display:flex; flex-wrap:wrap; gap:12px; align-items:center;
+      margin:18px 0 8px;
+    }
+    .btn{
+      appearance:none; border:none; cursor:pointer;
+      padding:16px 22px; border-radius:18px;
+      font-weight:700; letter-spacing:.02em; font-size:16px;
+      color:white; text-decoration:none; display:inline-flex; align-items:center; gap:10px;
+      background-image:linear-gradient(90deg, var(--magenta), #b057ff 60%, #6bb6ff);
+      box-shadow: 0 8px 26px #ff2d9a55, 0 0 0 2px #ffffff22 inset;
+      transition: transform .06s ease, box-shadow .2s ease;
+    }
+    .btn:active{ transform: translateY(1px) scale(.995); }
+    .ghost{
+      background:transparent; border:1px solid #ffffff33; box-shadow:none;
+      padding:16px 18px; border-radius:16px; color:#fff;
+    }
+
+    .waitlist{
+      display:flex; gap:10px; flex-wrap:wrap; align-items:center;
+      background:var(--glass); border:1px solid #ffffff22; border-radius:16px;
+      padding:10px; box-shadow:0 12px 30px #0006 inset;
+      max-width:680px;
+    }
+    .waitlist input{
+      flex:1 1 220px; min-width:0;
+      background:#0f0820; color:#fff; border:1px solid #ffffff22;
+      padding:14px 14px; border-radius:12px; outline:none; font-size:16px;
+    }
     .waitlist .join{white-space:nowrap}
-    footer{margin-top:26px;opacity:.75;font-size:14px}
-    .planet{position:absolute;right:-10vw;top:-12vw;width:min(70vw,740px);aspect-ratio:1;background:radial-gradient(circle at 55% 45%,#9c6bff 0%,#7a4bff 30%,#401a7e 58%,transparent 62%),radial-gradient(circle at 40% 60%,#ff2d9a66 0%,transparent 60%);filter:blur(2px) saturate(120%);opacity:.28;pointer-events:none;border-radius:50%;box-shadow:0 0 120px #ff2d9a44}
-    .badges{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0 0}
-    .pill{display:inline-flex;align-items:center;gap:8px;padding:8px 12px;background:#ffffff10;border:1px solid #ffffff22;border-radius:999px;font-size:13px}
-    @media (max-width:520px){.cta-row{gap:8px}.btn,.ghost{width:100%;justify-content:center}.waitlist{padding:8px}}
+
+    footer{margin-top:26px; opacity:.75; font-size:14px}
+
+    .planet{
+      position:absolute; right:-10vw; top:-12vw; width:min(70vw, 740px); aspect-ratio:1;
+      background:radial-gradient(circle at 55% 45%, #9c6bff 0%, #7a4bff 30%, #401a7e 58%, transparent 62%),
+                 radial-gradient(circle at 40% 60%, #ff2d9a66 0%, transparent 60%);
+      filter: blur(2px) saturate(120%);
+      opacity:.28; pointer-events:none; border-radius:50%;
+      box-shadow: 0 0 120px #ff2d9a44;
+    }
+
+    .badges{display:flex; gap:8px; flex-wrap:wrap; margin:10px 0 0}
+    .pill{
+      display:inline-flex; align-items:center; gap:8px; padding:8px 12px;
+      background:#ffffff10; border:1px solid #ffffff22; border-radius:999px; font-size:13px
+    }
+
+    @media (max-width:520px){
+      .cta-row{gap:8px}
+      .btn,.ghost{width:100%; justify-content:center}
+      .waitlist{padding:8px}
+    }
   </style>
 </head>
 <body>
@@ -69,6 +178,7 @@
       <header>
         <a class="brand" href="#">
           <span class="flame" aria-hidden="true">
+            <!-- flame glyph -->
             <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
               <path d="M12 3c1.7 3.3-.1 4.9-1.4 6.6C9.3 11 9 12.4 9.5 13.9c.6-1 1.7-1.8 2.7-2.2 1.8-.8 3.3-2.1 3.4-4.5C17.8 9 20 11.5 20 14.7A8 8 0 1 1 8.6 7.2C9.3 5.7 10.6 4.6 12 3Z" fill="#6b2c00"/>
               <path d="M12 19c2.5 0 4-1.6 4-3.7 0-1.6-1-2.9-2-3.6-.2 1.6-1.1 2.5-2.2 3.1-1.3.7-1.9 1.4-1.9 2.6 0 1 .8 1.6 2.1 1.6Z" fill="#ffd15c"/>
@@ -78,14 +188,20 @@
         </a>
       </header>
 
-      <div class="kicker">A cozy gameworld for real life</div>
+      <!-- Kicker -->
+      <div class="kicker">A sacred gameworld for real life</div>
+
+      <!-- Headline -->
       <h1>We’re Igniting Soon</h1>
+
+      <!-- Sub / lead -->
       <p class="sub">
-        Log moments. Level up your circle. Tend the flame together.  
-        <strong>Sacred System</strong> is preparing the realm—join the early waitlist and be first to enter.
+        <strong>Cozy at the hearth. Epic by design.</strong><br>
+        Rest in warmth, log your moments, and level up with your circle. Or step beyond the flame into quests, relics, and thrilling RPG adventure.<br>
+        The <strong>Sacred System</strong> adapts to you—whether you seek gentle rhythm or a legendary saga that echoes across realms of the Multiverse.
       </p>
 
-      <!-- Mail app version (opens compose) -->
+      <!-- Mail app waitlist (unchanged behavior) -->
       <form class="waitlist" onsubmit="join(event)">
         <input id="email" type="email" placeholder="Enter email for early access" required>
         <button class="btn join" type="submit">✨ Join the Waitlist</button>
@@ -102,11 +218,14 @@
         <span class="pill">🛡️ Privacy-respecting</span>
       </div>
 
-      <footer>© <span id="y"></span> Sacred System • All rights reserved.</footer>
+      <footer>
+        © <span id="y"></span> Sacred System • All rights reserved.
+      </footer>
     </main>
   </div>
 
   <script>
+    // year
     document.getElementById('y').textContent = new Date().getFullYear();
 
     // Opens the user's email app with a prefilled message to waitlist@sacred-system.com
